@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_form));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Side_panel = new System.Windows.Forms.Panel();
             this.Clients_btn = new System.Windows.Forms.Button();
             this.Workers_btn = new System.Windows.Forms.Button();
@@ -74,6 +77,11 @@
             this.task_id_txt = new System.Windows.Forms.TextBox();
             this.tASKTableAdapter = new Tawfiq.Task_Worker_MatchingDataSetTableAdapters.TASKTableAdapter();
             this.Overview_panel = new System.Windows.Forms.Panel();
+            this.Top_rated_workers_table = new System.Windows.Forms.DataGridView();
+            this.Worker_location_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Requests_panel = new System.Windows.Forms.Panel();
+            this.Workers_panel = new System.Windows.Forms.Panel();
+            this.Clients_panel = new System.Windows.Forms.Panel();
             this.Side_panel.SuspendLayout();
             this.Logo_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Main_logo_picbox)).BeginInit();
@@ -81,6 +89,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Tasks_table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tASKBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet)).BeginInit();
+            this.Overview_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Top_rated_workers_table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Worker_location_chart)).BeginInit();
             this.SuspendLayout();
             // 
             // Side_panel
@@ -196,7 +207,6 @@
             // 
             // Tasks_panel
             // 
-            this.Tasks_panel.Controls.Add(this.Overview_panel);
             this.Tasks_panel.Controls.Add(this.Search_task_btn);
             this.Tasks_panel.Controls.Add(this.Tasks_table);
             this.Tasks_panel.Controls.Add(this.edit_task_btn);
@@ -553,12 +563,62 @@
             // 
             // Overview_panel
             // 
+            this.Overview_panel.Controls.Add(this.Top_rated_workers_table);
+            this.Overview_panel.Controls.Add(this.Worker_location_chart);
             this.Overview_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Overview_panel.Location = new System.Drawing.Point(0, 0);
+            this.Overview_panel.Location = new System.Drawing.Point(300, 0);
             this.Overview_panel.Name = "Overview_panel";
             this.Overview_panel.Size = new System.Drawing.Size(1312, 712);
             this.Overview_panel.TabIndex = 42;
             this.Overview_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Overview_panel_Paint);
+            // 
+            // Top_rated_workers_table
+            // 
+            this.Top_rated_workers_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Top_rated_workers_table.Location = new System.Drawing.Point(671, 195);
+            this.Top_rated_workers_table.Name = "Top_rated_workers_table";
+            this.Top_rated_workers_table.Size = new System.Drawing.Size(555, 323);
+            this.Top_rated_workers_table.TabIndex = 3;
+            // 
+            // Worker_location_chart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.Worker_location_chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Worker_location_chart.Legends.Add(legend1);
+            this.Worker_location_chart.Location = new System.Drawing.Point(87, 195);
+            this.Worker_location_chart.Name = "Worker_location_chart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.Worker_location_chart.Series.Add(series1);
+            this.Worker_location_chart.Size = new System.Drawing.Size(474, 323);
+            this.Worker_location_chart.TabIndex = 2;
+            this.Worker_location_chart.Text = "chart1";
+            // 
+            // Requests_panel
+            // 
+            this.Requests_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Requests_panel.Location = new System.Drawing.Point(300, 0);
+            this.Requests_panel.Name = "Requests_panel";
+            this.Requests_panel.Size = new System.Drawing.Size(1312, 712);
+            this.Requests_panel.TabIndex = 42;
+            // 
+            // Workers_panel
+            // 
+            this.Workers_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Workers_panel.Location = new System.Drawing.Point(300, 0);
+            this.Workers_panel.Name = "Workers_panel";
+            this.Workers_panel.Size = new System.Drawing.Size(1312, 712);
+            this.Workers_panel.TabIndex = 43;
+            // 
+            // Clients_panel
+            // 
+            this.Clients_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Clients_panel.Location = new System.Drawing.Point(300, 0);
+            this.Clients_panel.Name = "Clients_panel";
+            this.Clients_panel.Size = new System.Drawing.Size(1312, 712);
+            this.Clients_panel.TabIndex = 44;
             // 
             // Main_form
             // 
@@ -566,7 +626,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1612, 712);
+            this.Controls.Add(this.Clients_panel);
+            this.Controls.Add(this.Overview_panel);
             this.Controls.Add(this.Tasks_panel);
+            this.Controls.Add(this.Workers_panel);
+            this.Controls.Add(this.Requests_panel);
             this.Controls.Add(this.Side_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -582,6 +646,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Tasks_table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tASKBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet)).EndInit();
+            this.Overview_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Top_rated_workers_table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Worker_location_chart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -632,6 +699,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aVERAGEFEEDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button Search_task_btn;
         private System.Windows.Forms.Panel Overview_panel;
+        private System.Windows.Forms.DataGridView Top_rated_workers_table;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Worker_location_chart;
+        private System.Windows.Forms.Panel Requests_panel;
+        private System.Windows.Forms.Panel Workers_panel;
+        private System.Windows.Forms.Panel Clients_panel;
     }
 }
 
