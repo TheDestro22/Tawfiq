@@ -429,6 +429,7 @@
             this.delete_task_btn.TabIndex = 38;
             this.delete_task_btn.Text = "Delete Task";
             this.delete_task_btn.UseVisualStyleBackColor = true;
+            this.delete_task_btn.Click += new System.EventHandler(this.delete_task_btn_Click);
             // 
             // load_tasks_btn
             // 
@@ -442,6 +443,7 @@
             this.load_tasks_btn.TabIndex = 37;
             this.load_tasks_btn.Text = "Load Tasks";
             this.load_tasks_btn.UseVisualStyleBackColor = true;
+            this.load_tasks_btn.Click += new System.EventHandler(this.load_tasks_btn_Click);
             // 
             // add_task_btn
             // 
