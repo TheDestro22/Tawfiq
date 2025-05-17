@@ -254,19 +254,57 @@ namespace Tawfiq
         {
             Overview_panel.Visible = true;
             Tasks_panel.Visible = false;
+            Requests_panel.Visible = false;
+            Clients_panel.Visible = false;
+            Workers_panel.Visible = false;
 
         }
 
         private void Tasks_btn_Click(object sender, EventArgs e)
         {
-            Overview_panel.Visible = false;
             Tasks_panel.Visible = true;
+            Overview_panel.Visible = false;
+            Requests_panel.Visible = false;
+            Clients_panel.Visible = false;
+            Workers_panel.Visible = false;
 
         }
 
         private void Overview_panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Clients_panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Requests_btn_Click(object sender, EventArgs e)
+        {
+            Requests_panel.Visible = true;
+            Tasks_panel.Visible = false;
+            Overview_panel.Visible = false;
+            Clients_panel.Visible = false;
+            Workers_panel.Visible = false;
+        }
+
+        private void Workers_btn_Click(object sender, EventArgs e)
+        {
+            Workers_panel.Visible = true;
+            Requests_panel.Visible = false;
+            Tasks_panel.Visible = false;
+            Overview_panel.Visible = false;
+            Clients_panel.Visible = false;
+        }
+
+        private void Clients_btn_Click(object sender, EventArgs e)
+        {
+            Clients_panel.Visible = true;
+            Workers_panel.Visible = false;
+            Requests_panel.Visible = false;
+            Tasks_panel.Visible = false;
+            Overview_panel.Visible = false;
         }
     }
 }
