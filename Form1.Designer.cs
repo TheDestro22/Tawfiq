@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_form));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Side_panel = new System.Windows.Forms.Panel();
             this.Clients_btn = new System.Windows.Forms.Button();
             this.Workers_btn = new System.Windows.Forms.Button();
@@ -594,16 +594,16 @@
             // 
             // Worker_location_chart
             // 
-            chartArea11.Name = "ChartArea1";
-            this.Worker_location_chart.ChartAreas.Add(chartArea11);
-            legend11.Name = "Legend1";
-            this.Worker_location_chart.Legends.Add(legend11);
+            chartArea15.Name = "ChartArea1";
+            this.Worker_location_chart.ChartAreas.Add(chartArea15);
+            legend15.Name = "Legend1";
+            this.Worker_location_chart.Legends.Add(legend15);
             this.Worker_location_chart.Location = new System.Drawing.Point(87, 195);
             this.Worker_location_chart.Name = "Worker_location_chart";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.Name = "Series1";
-            this.Worker_location_chart.Series.Add(series11);
+            series15.ChartArea = "ChartArea1";
+            series15.Legend = "Legend1";
+            series15.Name = "Series1";
+            this.Worker_location_chart.Series.Add(series15);
             this.Worker_location_chart.Size = new System.Drawing.Size(474, 323);
             this.Worker_location_chart.TabIndex = 2;
             this.Worker_location_chart.Text = "chart1";
@@ -615,6 +615,7 @@
             this.Requests_panel.Name = "Requests_panel";
             this.Requests_panel.Size = new System.Drawing.Size(1312, 712);
             this.Requests_panel.TabIndex = 42;
+            this.Requests_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Requests_panel_Paint);
             // 
             // Workers_panel
             // 
@@ -623,6 +624,7 @@
             this.Workers_panel.Name = "Workers_panel";
             this.Workers_panel.Size = new System.Drawing.Size(1312, 712);
             this.Workers_panel.TabIndex = 43;
+            this.Workers_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Workers_panel_Paint);
             // 
             // Clients_panel
             // 
@@ -661,11 +663,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1612, 712);
-            this.Controls.Add(this.Requests_panel);
             this.Controls.Add(this.Tasks_panel);
+            this.Controls.Add(this.Workers_panel);
+            this.Controls.Add(this.Requests_panel);
             this.Controls.Add(this.Overview_panel);
             this.Controls.Add(this.Clients_panel);
-            this.Controls.Add(this.Workers_panel);
             this.Controls.Add(this.Side_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
