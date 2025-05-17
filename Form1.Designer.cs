@@ -39,16 +39,19 @@
             this.Logo_Panel = new System.Windows.Forms.Panel();
             this.Main_logo_picbox = new System.Windows.Forms.PictureBox();
             this.Tasks_panel = new System.Windows.Forms.Panel();
-            this.average_fee_btn = new System.Windows.Forms.Label();
-            this.average_fee_txt = new System.Windows.Forms.TextBox();
-            this.task_name_label = new System.Windows.Forms.Label();
-            this.task_name_txt = new System.Windows.Forms.TextBox();
-            this.required_speciality_label = new System.Windows.Forms.Label();
-            this.required_speciality_txt = new System.Windows.Forms.TextBox();
-            this.average_time_label = new System.Windows.Forms.Label();
-            this.average_time_txt = new System.Windows.Forms.TextBox();
-            this.task_id_label = new System.Windows.Forms.Label();
-            this.task_id_txt = new System.Windows.Forms.TextBox();
+            this.Search_task_btn = new System.Windows.Forms.Button();
+            this.Tasks_table = new System.Windows.Forms.DataGridView();
+            this.tASKIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tASKNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aVERAGETIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aVERAGEFEEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tASKBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.task_Worker_MatchingDataSet = new Tawfiq.Task_Worker_MatchingDataSet();
+            this.edit_task_btn = new System.Windows.Forms.Button();
+            this.delete_task_btn = new System.Windows.Forms.Button();
+            this.load_tasks_btn = new System.Windows.Forms.Button();
+            this.add_task_btn = new System.Windows.Forms.Button();
             this.new_average_fee = new System.Windows.Forms.Label();
             this.new_average_fee_txt = new System.Windows.Forms.TextBox();
             this.new_task_name_label = new System.Windows.Forms.Label();
@@ -59,26 +62,25 @@
             this.new_average_time_txt = new System.Windows.Forms.TextBox();
             this.new_task_id_label = new System.Windows.Forms.Label();
             this.new_task_id_txt = new System.Windows.Forms.TextBox();
-            this.edit_task_btn = new System.Windows.Forms.Button();
-            this.delete_task_btn = new System.Windows.Forms.Button();
-            this.load_tasks_btn = new System.Windows.Forms.Button();
-            this.add_task_btn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.task_Worker_MatchingDataSet = new Tawfiq.Task_Worker_MatchingDataSet();
-            this.tASKBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.average_fee_btn = new System.Windows.Forms.Label();
+            this.average_fee_txt = new System.Windows.Forms.TextBox();
+            this.task_name_label = new System.Windows.Forms.Label();
+            this.task_name_txt = new System.Windows.Forms.TextBox();
+            this.required_speciality_label = new System.Windows.Forms.Label();
+            this.required_speciality_txt = new System.Windows.Forms.TextBox();
+            this.average_time_label = new System.Windows.Forms.Label();
+            this.average_time_txt = new System.Windows.Forms.TextBox();
+            this.task_id_label = new System.Windows.Forms.Label();
+            this.task_id_txt = new System.Windows.Forms.TextBox();
             this.tASKTableAdapter = new Tawfiq.Task_Worker_MatchingDataSetTableAdapters.TASKTableAdapter();
-            this.tASKIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tASKNAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aVERAGETIMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aVERAGEFEEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Overview_panel = new System.Windows.Forms.Panel();
             this.Side_panel.SuspendLayout();
             this.Logo_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Main_logo_picbox)).BeginInit();
             this.Tasks_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tasks_table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tASKBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // Side_panel
@@ -93,7 +95,7 @@
             this.Side_panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.Side_panel.Location = new System.Drawing.Point(0, 0);
             this.Side_panel.Name = "Side_panel";
-            this.Side_panel.Size = new System.Drawing.Size(300, 800);
+            this.Side_panel.Size = new System.Drawing.Size(300, 712);
             this.Side_panel.TabIndex = 1;
             // 
             // Clients_btn
@@ -155,6 +157,7 @@
             this.Tasks_btn.Text = "Tasks";
             this.Tasks_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Tasks_btn.UseVisualStyleBackColor = true;
+            this.Tasks_btn.Click += new System.EventHandler(this.Tasks_btn_Click);
             // 
             // Overview_btn
             // 
@@ -170,6 +173,7 @@
             this.Overview_btn.Text = "Overview";
             this.Overview_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Overview_btn.UseVisualStyleBackColor = true;
+            this.Overview_btn.Click += new System.EventHandler(this.Overview_btn_Click);
             // 
             // Logo_Panel
             // 
@@ -192,7 +196,9 @@
             // 
             // Tasks_panel
             // 
-            this.Tasks_panel.Controls.Add(this.dataGridView1);
+            this.Tasks_panel.Controls.Add(this.Overview_panel);
+            this.Tasks_panel.Controls.Add(this.Search_task_btn);
+            this.Tasks_panel.Controls.Add(this.Tasks_table);
             this.Tasks_panel.Controls.Add(this.edit_task_btn);
             this.Tasks_panel.Controls.Add(this.delete_task_btn);
             this.Tasks_panel.Controls.Add(this.load_tasks_btn);
@@ -220,188 +226,89 @@
             this.Tasks_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Tasks_panel.Location = new System.Drawing.Point(300, 0);
             this.Tasks_panel.Name = "Tasks_panel";
-            this.Tasks_panel.Size = new System.Drawing.Size(1280, 800);
+            this.Tasks_panel.Size = new System.Drawing.Size(1312, 712);
             this.Tasks_panel.TabIndex = 2;
             // 
-            // average_fee_btn
+            // Search_task_btn
             // 
-            this.average_fee_btn.AutoSize = true;
-            this.average_fee_btn.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.average_fee_btn.Location = new System.Drawing.Point(35, 350);
-            this.average_fee_btn.Name = "average_fee_btn";
-            this.average_fee_btn.Size = new System.Drawing.Size(104, 21);
-            this.average_fee_btn.TabIndex = 25;
-            this.average_fee_btn.Text = "Average Fee";
+            this.Search_task_btn.FlatAppearance.BorderSize = 0;
+            this.Search_task_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Search_task_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search_task_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
+            this.Search_task_btn.Location = new System.Drawing.Point(6, 598);
+            this.Search_task_btn.Name = "Search_task_btn";
+            this.Search_task_btn.Size = new System.Drawing.Size(309, 102);
+            this.Search_task_btn.TabIndex = 41;
+            this.Search_task_btn.Text = "Search for Task";
+            this.Search_task_btn.UseVisualStyleBackColor = true;
+            this.Search_task_btn.Click += new System.EventHandler(this.Search_task_btn_Click);
             // 
-            // average_fee_txt
+            // Tasks_table
             // 
-            this.average_fee_txt.Location = new System.Drawing.Point(157, 353);
-            this.average_fee_txt.Multiline = true;
-            this.average_fee_txt.Name = "average_fee_txt";
-            this.average_fee_txt.Size = new System.Drawing.Size(191, 20);
-            this.average_fee_txt.TabIndex = 24;
+            this.Tasks_table.AutoGenerateColumns = false;
+            this.Tasks_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tasks_table.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tASKIDDataGridViewTextBoxColumn,
+            this.tASKNAMEDataGridViewTextBoxColumn,
+            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn,
+            this.aVERAGETIMEDataGridViewTextBoxColumn,
+            this.aVERAGEFEEDataGridViewTextBoxColumn});
+            this.Tasks_table.DataSource = this.tASKBindingSource;
+            this.Tasks_table.Location = new System.Drawing.Point(746, 109);
+            this.Tasks_table.Name = "Tasks_table";
+            this.Tasks_table.RowHeadersWidth = 62;
+            this.Tasks_table.Size = new System.Drawing.Size(554, 588);
+            this.Tasks_table.TabIndex = 40;
             // 
-            // task_name_label
+            // tASKIDDataGridViewTextBoxColumn
             // 
-            this.task_name_label.AutoSize = true;
-            this.task_name_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.task_name_label.Location = new System.Drawing.Point(35, 185);
-            this.task_name_label.Name = "task_name_label";
-            this.task_name_label.Size = new System.Drawing.Size(97, 21);
-            this.task_name_label.TabIndex = 23;
-            this.task_name_label.Text = "Task Name";
+            this.tASKIDDataGridViewTextBoxColumn.DataPropertyName = "TASK_ID";
+            this.tASKIDDataGridViewTextBoxColumn.HeaderText = "TASK_ID";
+            this.tASKIDDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.tASKIDDataGridViewTextBoxColumn.Name = "tASKIDDataGridViewTextBoxColumn";
+            this.tASKIDDataGridViewTextBoxColumn.Width = 150;
             // 
-            // task_name_txt
+            // tASKNAMEDataGridViewTextBoxColumn
             // 
-            this.task_name_txt.Location = new System.Drawing.Point(148, 185);
-            this.task_name_txt.Multiline = true;
-            this.task_name_txt.Name = "task_name_txt";
-            this.task_name_txt.Size = new System.Drawing.Size(200, 20);
-            this.task_name_txt.TabIndex = 22;
+            this.tASKNAMEDataGridViewTextBoxColumn.DataPropertyName = "TASK_NAME";
+            this.tASKNAMEDataGridViewTextBoxColumn.HeaderText = "TASK_NAME";
+            this.tASKNAMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.tASKNAMEDataGridViewTextBoxColumn.Name = "tASKNAMEDataGridViewTextBoxColumn";
+            this.tASKNAMEDataGridViewTextBoxColumn.Width = 150;
             // 
-            // required_speciality_label
+            // rEQUIREDSPECIALITYDataGridViewTextBoxColumn
             // 
-            this.required_speciality_label.AutoSize = true;
-            this.required_speciality_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.required_speciality_label.Location = new System.Drawing.Point(35, 240);
-            this.required_speciality_label.Name = "required_speciality_label";
-            this.required_speciality_label.Size = new System.Drawing.Size(162, 21);
-            this.required_speciality_label.TabIndex = 21;
-            this.required_speciality_label.Text = "Required Speciality";
+            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn.DataPropertyName = "REQUIRED_SPECIALITY";
+            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn.HeaderText = "REQUIRED_SPECIALITY";
+            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn.Name = "rEQUIREDSPECIALITYDataGridViewTextBoxColumn";
+            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn.Width = 150;
             // 
-            // required_speciality_txt
+            // aVERAGETIMEDataGridViewTextBoxColumn
             // 
-            this.required_speciality_txt.Location = new System.Drawing.Point(203, 240);
-            this.required_speciality_txt.Multiline = true;
-            this.required_speciality_txt.Name = "required_speciality_txt";
-            this.required_speciality_txt.Size = new System.Drawing.Size(145, 20);
-            this.required_speciality_txt.TabIndex = 20;
+            this.aVERAGETIMEDataGridViewTextBoxColumn.DataPropertyName = "AVERAGE_TIME";
+            this.aVERAGETIMEDataGridViewTextBoxColumn.HeaderText = "AVERAGE_TIME";
+            this.aVERAGETIMEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.aVERAGETIMEDataGridViewTextBoxColumn.Name = "aVERAGETIMEDataGridViewTextBoxColumn";
+            this.aVERAGETIMEDataGridViewTextBoxColumn.Width = 150;
             // 
-            // average_time_label
+            // aVERAGEFEEDataGridViewTextBoxColumn
             // 
-            this.average_time_label.AutoSize = true;
-            this.average_time_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.average_time_label.Location = new System.Drawing.Point(35, 294);
-            this.average_time_label.Name = "average_time_label";
-            this.average_time_label.Size = new System.Drawing.Size(116, 21);
-            this.average_time_label.TabIndex = 19;
-            this.average_time_label.Text = "Average Time";
+            this.aVERAGEFEEDataGridViewTextBoxColumn.DataPropertyName = "AVERAGE_FEE";
+            this.aVERAGEFEEDataGridViewTextBoxColumn.HeaderText = "AVERAGE_FEE";
+            this.aVERAGEFEEDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.aVERAGEFEEDataGridViewTextBoxColumn.Name = "aVERAGEFEEDataGridViewTextBoxColumn";
+            this.aVERAGEFEEDataGridViewTextBoxColumn.Width = 150;
             // 
-            // average_time_txt
+            // tASKBindingSource
             // 
-            this.average_time_txt.Location = new System.Drawing.Point(157, 295);
-            this.average_time_txt.Multiline = true;
-            this.average_time_txt.Name = "average_time_txt";
-            this.average_time_txt.Size = new System.Drawing.Size(191, 20);
-            this.average_time_txt.TabIndex = 18;
+            this.tASKBindingSource.DataMember = "TASK";
+            this.tASKBindingSource.DataSource = this.task_Worker_MatchingDataSet;
             // 
-            // task_id_label
+            // task_Worker_MatchingDataSet
             // 
-            this.task_id_label.AutoSize = true;
-            this.task_id_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.task_id_label.Location = new System.Drawing.Point(35, 119);
-            this.task_id_label.Name = "task_id_label";
-            this.task_id_label.Size = new System.Drawing.Size(75, 21);
-            this.task_id_label.TabIndex = 17;
-            this.task_id_label.Text = "Task ID";
-            // 
-            // task_id_txt
-            // 
-            this.task_id_txt.Location = new System.Drawing.Point(148, 119);
-            this.task_id_txt.Multiline = true;
-            this.task_id_txt.Name = "task_id_txt";
-            this.task_id_txt.Size = new System.Drawing.Size(200, 20);
-            this.task_id_txt.TabIndex = 16;
-            // 
-            // new_average_fee
-            // 
-            this.new_average_fee.AutoSize = true;
-            this.new_average_fee.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_average_fee.Location = new System.Drawing.Point(420, 350);
-            this.new_average_fee.Name = "new_average_fee";
-            this.new_average_fee.Size = new System.Drawing.Size(142, 21);
-            this.new_average_fee.TabIndex = 35;
-            this.new_average_fee.Text = "New Average Fee";
-            // 
-            // new_average_fee_txt
-            // 
-            this.new_average_fee_txt.Location = new System.Drawing.Point(578, 351);
-            this.new_average_fee_txt.Multiline = true;
-            this.new_average_fee_txt.Name = "new_average_fee_txt";
-            this.new_average_fee_txt.Size = new System.Drawing.Size(183, 20);
-            this.new_average_fee_txt.TabIndex = 34;
-            // 
-            // new_task_name_label
-            // 
-            this.new_task_name_label.AutoSize = true;
-            this.new_task_name_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_task_name_label.Location = new System.Drawing.Point(420, 185);
-            this.new_task_name_label.Name = "new_task_name_label";
-            this.new_task_name_label.Size = new System.Drawing.Size(135, 21);
-            this.new_task_name_label.TabIndex = 33;
-            this.new_task_name_label.Text = "New Task Name";
-            // 
-            // new_task_name_txt
-            // 
-            this.new_task_name_txt.Location = new System.Drawing.Point(561, 185);
-            this.new_task_name_txt.Multiline = true;
-            this.new_task_name_txt.Name = "new_task_name_txt";
-            this.new_task_name_txt.Size = new System.Drawing.Size(200, 20);
-            this.new_task_name_txt.TabIndex = 32;
-            // 
-            // new_required_speciality_label
-            // 
-            this.new_required_speciality_label.AutoSize = true;
-            this.new_required_speciality_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_required_speciality_label.Location = new System.Drawing.Point(420, 240);
-            this.new_required_speciality_label.Name = "new_required_speciality_label";
-            this.new_required_speciality_label.Size = new System.Drawing.Size(200, 21);
-            this.new_required_speciality_label.TabIndex = 31;
-            this.new_required_speciality_label.Text = "New Required Speciality";
-            // 
-            // new_required_speciality_txt
-            // 
-            this.new_required_speciality_txt.Location = new System.Drawing.Point(636, 241);
-            this.new_required_speciality_txt.Multiline = true;
-            this.new_required_speciality_txt.Name = "new_required_speciality_txt";
-            this.new_required_speciality_txt.Size = new System.Drawing.Size(125, 20);
-            this.new_required_speciality_txt.TabIndex = 30;
-            // 
-            // new_average_time
-            // 
-            this.new_average_time.AutoSize = true;
-            this.new_average_time.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_average_time.Location = new System.Drawing.Point(420, 294);
-            this.new_average_time.Name = "new_average_time";
-            this.new_average_time.Size = new System.Drawing.Size(154, 21);
-            this.new_average_time.TabIndex = 29;
-            this.new_average_time.Text = "New Average Time";
-            // 
-            // new_average_time_txt
-            // 
-            this.new_average_time_txt.Location = new System.Drawing.Point(589, 297);
-            this.new_average_time_txt.Multiline = true;
-            this.new_average_time_txt.Name = "new_average_time_txt";
-            this.new_average_time_txt.Size = new System.Drawing.Size(172, 20);
-            this.new_average_time_txt.TabIndex = 28;
-            // 
-            // new_task_id_label
-            // 
-            this.new_task_id_label.AutoSize = true;
-            this.new_task_id_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_task_id_label.Location = new System.Drawing.Point(420, 119);
-            this.new_task_id_label.Name = "new_task_id_label";
-            this.new_task_id_label.Size = new System.Drawing.Size(113, 21);
-            this.new_task_id_label.TabIndex = 27;
-            this.new_task_id_label.Text = "New Task ID";
-            // 
-            // new_task_id_txt
-            // 
-            this.new_task_id_txt.Location = new System.Drawing.Point(561, 122);
-            this.new_task_id_txt.Multiline = true;
-            this.new_task_id_txt.Name = "new_task_id_txt";
-            this.new_task_id_txt.Size = new System.Drawing.Size(200, 20);
-            this.new_task_id_txt.TabIndex = 26;
+            this.task_Worker_MatchingDataSet.DataSetName = "Task_Worker_MatchingDataSet";
+            this.task_Worker_MatchingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // edit_task_btn
             // 
@@ -409,7 +316,7 @@
             this.edit_task_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.edit_task_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit_task_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.edit_task_btn.Location = new System.Drawing.Point(424, 392);
+            this.edit_task_btn.Location = new System.Drawing.Point(391, 382);
             this.edit_task_btn.Name = "edit_task_btn";
             this.edit_task_btn.Size = new System.Drawing.Size(309, 102);
             this.edit_task_btn.TabIndex = 39;
@@ -423,7 +330,7 @@
             this.delete_task_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete_task_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete_task_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.delete_task_btn.Location = new System.Drawing.Point(39, 500);
+            this.delete_task_btn.Location = new System.Drawing.Point(6, 490);
             this.delete_task_btn.Name = "delete_task_btn";
             this.delete_task_btn.Size = new System.Drawing.Size(309, 102);
             this.delete_task_btn.TabIndex = 38;
@@ -437,7 +344,7 @@
             this.load_tasks_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.load_tasks_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.load_tasks_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.load_tasks_btn.Location = new System.Drawing.Point(424, 500);
+            this.load_tasks_btn.Location = new System.Drawing.Point(391, 490);
             this.load_tasks_btn.Name = "load_tasks_btn";
             this.load_tasks_btn.Size = new System.Drawing.Size(309, 102);
             this.load_tasks_btn.TabIndex = 37;
@@ -452,7 +359,7 @@
             this.add_task_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_task_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_task_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.add_task_btn.Location = new System.Drawing.Point(39, 392);
+            this.add_task_btn.Location = new System.Drawing.Point(6, 382);
             this.add_task_btn.Name = "add_task_btn";
             this.add_task_btn.Size = new System.Drawing.Size(309, 102);
             this.add_task_btn.TabIndex = 36;
@@ -460,72 +367,205 @@
             this.add_task_btn.UseVisualStyleBackColor = false;
             this.add_task_btn.Click += new System.EventHandler(this.add_task_btn_Click);
             // 
-            // dataGridView1
+            // new_average_fee
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.tASKIDDataGridViewTextBoxColumn,
-            this.tASKNAMEDataGridViewTextBoxColumn,
-            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn,
-            this.aVERAGETIMEDataGridViewTextBoxColumn,
-            this.aVERAGEFEEDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tASKBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(791, 122);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(477, 666);
-            this.dataGridView1.TabIndex = 40;
+            this.new_average_fee.AutoSize = true;
+            this.new_average_fee.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_average_fee.Location = new System.Drawing.Point(387, 340);
+            this.new_average_fee.Name = "new_average_fee";
+            this.new_average_fee.Size = new System.Drawing.Size(142, 21);
+            this.new_average_fee.TabIndex = 35;
+            this.new_average_fee.Text = "New Average Fee";
             // 
-            // task_Worker_MatchingDataSet
+            // new_average_fee_txt
             // 
-            this.task_Worker_MatchingDataSet.DataSetName = "Task_Worker_MatchingDataSet";
-            this.task_Worker_MatchingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.new_average_fee_txt.Location = new System.Drawing.Point(545, 341);
+            this.new_average_fee_txt.Multiline = true;
+            this.new_average_fee_txt.Name = "new_average_fee_txt";
+            this.new_average_fee_txt.Size = new System.Drawing.Size(183, 20);
+            this.new_average_fee_txt.TabIndex = 34;
             // 
-            // tASKBindingSource
+            // new_task_name_label
             // 
-            this.tASKBindingSource.DataMember = "TASK";
-            this.tASKBindingSource.DataSource = this.task_Worker_MatchingDataSet;
+            this.new_task_name_label.AutoSize = true;
+            this.new_task_name_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_task_name_label.Location = new System.Drawing.Point(387, 175);
+            this.new_task_name_label.Name = "new_task_name_label";
+            this.new_task_name_label.Size = new System.Drawing.Size(135, 21);
+            this.new_task_name_label.TabIndex = 33;
+            this.new_task_name_label.Text = "New Task Name";
+            // 
+            // new_task_name_txt
+            // 
+            this.new_task_name_txt.Location = new System.Drawing.Point(528, 175);
+            this.new_task_name_txt.Multiline = true;
+            this.new_task_name_txt.Name = "new_task_name_txt";
+            this.new_task_name_txt.Size = new System.Drawing.Size(200, 20);
+            this.new_task_name_txt.TabIndex = 32;
+            // 
+            // new_required_speciality_label
+            // 
+            this.new_required_speciality_label.AutoSize = true;
+            this.new_required_speciality_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_required_speciality_label.Location = new System.Drawing.Point(387, 230);
+            this.new_required_speciality_label.Name = "new_required_speciality_label";
+            this.new_required_speciality_label.Size = new System.Drawing.Size(200, 21);
+            this.new_required_speciality_label.TabIndex = 31;
+            this.new_required_speciality_label.Text = "New Required Speciality";
+            // 
+            // new_required_speciality_txt
+            // 
+            this.new_required_speciality_txt.Location = new System.Drawing.Point(603, 231);
+            this.new_required_speciality_txt.Multiline = true;
+            this.new_required_speciality_txt.Name = "new_required_speciality_txt";
+            this.new_required_speciality_txt.Size = new System.Drawing.Size(125, 20);
+            this.new_required_speciality_txt.TabIndex = 30;
+            // 
+            // new_average_time
+            // 
+            this.new_average_time.AutoSize = true;
+            this.new_average_time.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_average_time.Location = new System.Drawing.Point(387, 284);
+            this.new_average_time.Name = "new_average_time";
+            this.new_average_time.Size = new System.Drawing.Size(154, 21);
+            this.new_average_time.TabIndex = 29;
+            this.new_average_time.Text = "New Average Time";
+            // 
+            // new_average_time_txt
+            // 
+            this.new_average_time_txt.Location = new System.Drawing.Point(556, 287);
+            this.new_average_time_txt.Multiline = true;
+            this.new_average_time_txt.Name = "new_average_time_txt";
+            this.new_average_time_txt.Size = new System.Drawing.Size(172, 20);
+            this.new_average_time_txt.TabIndex = 28;
+            // 
+            // new_task_id_label
+            // 
+            this.new_task_id_label.AutoSize = true;
+            this.new_task_id_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_task_id_label.Location = new System.Drawing.Point(387, 109);
+            this.new_task_id_label.Name = "new_task_id_label";
+            this.new_task_id_label.Size = new System.Drawing.Size(113, 21);
+            this.new_task_id_label.TabIndex = 27;
+            this.new_task_id_label.Text = "New Task ID";
+            // 
+            // new_task_id_txt
+            // 
+            this.new_task_id_txt.Location = new System.Drawing.Point(528, 112);
+            this.new_task_id_txt.Multiline = true;
+            this.new_task_id_txt.Name = "new_task_id_txt";
+            this.new_task_id_txt.Size = new System.Drawing.Size(200, 20);
+            this.new_task_id_txt.TabIndex = 26;
+            // 
+            // average_fee_btn
+            // 
+            this.average_fee_btn.AutoSize = true;
+            this.average_fee_btn.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.average_fee_btn.Location = new System.Drawing.Point(2, 340);
+            this.average_fee_btn.Name = "average_fee_btn";
+            this.average_fee_btn.Size = new System.Drawing.Size(104, 21);
+            this.average_fee_btn.TabIndex = 25;
+            this.average_fee_btn.Text = "Average Fee";
+            // 
+            // average_fee_txt
+            // 
+            this.average_fee_txt.Location = new System.Drawing.Point(124, 343);
+            this.average_fee_txt.Multiline = true;
+            this.average_fee_txt.Name = "average_fee_txt";
+            this.average_fee_txt.Size = new System.Drawing.Size(191, 20);
+            this.average_fee_txt.TabIndex = 24;
+            // 
+            // task_name_label
+            // 
+            this.task_name_label.AutoSize = true;
+            this.task_name_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.task_name_label.Location = new System.Drawing.Point(2, 175);
+            this.task_name_label.Name = "task_name_label";
+            this.task_name_label.Size = new System.Drawing.Size(97, 21);
+            this.task_name_label.TabIndex = 23;
+            this.task_name_label.Text = "Task Name";
+            // 
+            // task_name_txt
+            // 
+            this.task_name_txt.Location = new System.Drawing.Point(115, 175);
+            this.task_name_txt.Multiline = true;
+            this.task_name_txt.Name = "task_name_txt";
+            this.task_name_txt.Size = new System.Drawing.Size(200, 20);
+            this.task_name_txt.TabIndex = 22;
+            // 
+            // required_speciality_label
+            // 
+            this.required_speciality_label.AutoSize = true;
+            this.required_speciality_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.required_speciality_label.Location = new System.Drawing.Point(2, 230);
+            this.required_speciality_label.Name = "required_speciality_label";
+            this.required_speciality_label.Size = new System.Drawing.Size(162, 21);
+            this.required_speciality_label.TabIndex = 21;
+            this.required_speciality_label.Text = "Required Speciality";
+            // 
+            // required_speciality_txt
+            // 
+            this.required_speciality_txt.Location = new System.Drawing.Point(170, 230);
+            this.required_speciality_txt.Multiline = true;
+            this.required_speciality_txt.Name = "required_speciality_txt";
+            this.required_speciality_txt.Size = new System.Drawing.Size(145, 20);
+            this.required_speciality_txt.TabIndex = 20;
+            // 
+            // average_time_label
+            // 
+            this.average_time_label.AutoSize = true;
+            this.average_time_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.average_time_label.Location = new System.Drawing.Point(2, 284);
+            this.average_time_label.Name = "average_time_label";
+            this.average_time_label.Size = new System.Drawing.Size(116, 21);
+            this.average_time_label.TabIndex = 19;
+            this.average_time_label.Text = "Average Time";
+            // 
+            // average_time_txt
+            // 
+            this.average_time_txt.Location = new System.Drawing.Point(124, 285);
+            this.average_time_txt.Multiline = true;
+            this.average_time_txt.Name = "average_time_txt";
+            this.average_time_txt.Size = new System.Drawing.Size(191, 20);
+            this.average_time_txt.TabIndex = 18;
+            // 
+            // task_id_label
+            // 
+            this.task_id_label.AutoSize = true;
+            this.task_id_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.task_id_label.Location = new System.Drawing.Point(2, 109);
+            this.task_id_label.Name = "task_id_label";
+            this.task_id_label.Size = new System.Drawing.Size(75, 21);
+            this.task_id_label.TabIndex = 17;
+            this.task_id_label.Text = "Task ID";
+            // 
+            // task_id_txt
+            // 
+            this.task_id_txt.Location = new System.Drawing.Point(115, 109);
+            this.task_id_txt.Multiline = true;
+            this.task_id_txt.Name = "task_id_txt";
+            this.task_id_txt.Size = new System.Drawing.Size(200, 20);
+            this.task_id_txt.TabIndex = 16;
             // 
             // tASKTableAdapter
             // 
             this.tASKTableAdapter.ClearBeforeFill = true;
             // 
-            // tASKIDDataGridViewTextBoxColumn
+            // Overview_panel
             // 
-            this.tASKIDDataGridViewTextBoxColumn.DataPropertyName = "TASK_ID";
-            this.tASKIDDataGridViewTextBoxColumn.HeaderText = "TASK_ID";
-            this.tASKIDDataGridViewTextBoxColumn.Name = "tASKIDDataGridViewTextBoxColumn";
-            // 
-            // tASKNAMEDataGridViewTextBoxColumn
-            // 
-            this.tASKNAMEDataGridViewTextBoxColumn.DataPropertyName = "TASK_NAME";
-            this.tASKNAMEDataGridViewTextBoxColumn.HeaderText = "TASK_NAME";
-            this.tASKNAMEDataGridViewTextBoxColumn.Name = "tASKNAMEDataGridViewTextBoxColumn";
-            // 
-            // rEQUIREDSPECIALITYDataGridViewTextBoxColumn
-            // 
-            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn.DataPropertyName = "REQUIRED_SPECIALITY";
-            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn.HeaderText = "REQUIRED_SPECIALITY";
-            this.rEQUIREDSPECIALITYDataGridViewTextBoxColumn.Name = "rEQUIREDSPECIALITYDataGridViewTextBoxColumn";
-            // 
-            // aVERAGETIMEDataGridViewTextBoxColumn
-            // 
-            this.aVERAGETIMEDataGridViewTextBoxColumn.DataPropertyName = "AVERAGE_TIME";
-            this.aVERAGETIMEDataGridViewTextBoxColumn.HeaderText = "AVERAGE_TIME";
-            this.aVERAGETIMEDataGridViewTextBoxColumn.Name = "aVERAGETIMEDataGridViewTextBoxColumn";
-            // 
-            // aVERAGEFEEDataGridViewTextBoxColumn
-            // 
-            this.aVERAGEFEEDataGridViewTextBoxColumn.DataPropertyName = "AVERAGE_FEE";
-            this.aVERAGEFEEDataGridViewTextBoxColumn.HeaderText = "AVERAGE_FEE";
-            this.aVERAGEFEEDataGridViewTextBoxColumn.Name = "aVERAGEFEEDataGridViewTextBoxColumn";
+            this.Overview_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Overview_panel.Location = new System.Drawing.Point(0, 0);
+            this.Overview_panel.Name = "Overview_panel";
+            this.Overview_panel.Size = new System.Drawing.Size(1312, 712);
+            this.Overview_panel.TabIndex = 42;
+            this.Overview_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Overview_panel_Paint);
             // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1580, 800);
+            this.ClientSize = new System.Drawing.Size(1612, 712);
             this.Controls.Add(this.Tasks_panel);
             this.Controls.Add(this.Side_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -539,9 +579,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Main_logo_picbox)).EndInit();
             this.Tasks_panel.ResumeLayout(false);
             this.Tasks_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Tasks_table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tASKBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -581,7 +621,7 @@
         private System.Windows.Forms.Button delete_task_btn;
         private System.Windows.Forms.Button load_tasks_btn;
         private System.Windows.Forms.Button add_task_btn;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Tasks_table;
         private Task_Worker_MatchingDataSet task_Worker_MatchingDataSet;
         private System.Windows.Forms.BindingSource tASKBindingSource;
         private Task_Worker_MatchingDataSetTableAdapters.TASKTableAdapter tASKTableAdapter;
@@ -590,6 +630,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn rEQUIREDSPECIALITYDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aVERAGETIMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aVERAGEFEEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button Search_task_btn;
+        private System.Windows.Forms.Panel Overview_panel;
     }
 }
 

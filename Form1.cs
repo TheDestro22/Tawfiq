@@ -41,6 +41,7 @@ namespace Tawfiq
                     sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Task added successfully.");
                     this.tASKTableAdapter.Fill(this.task_Worker_MatchingDataSet.TASK);
+                    Tasks_table.DataSource = task_Worker_MatchingDataSet.TASK;
                     sqlConnection.Close();
                 }
             }
@@ -128,6 +129,7 @@ namespace Tawfiq
                 int rowsAffected = sql_command.ExecuteNonQuery();
                 MessageBox.Show($"{rowsAffected} rows updated.");
                 this.tASKTableAdapter.Fill(this.task_Worker_MatchingDataSet.TASK);
+                Tasks_table.DataSource = task_Worker_MatchingDataSet.TASK;
                 sql_connection.Close();
 
             }
@@ -179,6 +181,7 @@ namespace Tawfiq
                 int rowsAffected = sql_command.ExecuteNonQuery();
                 MessageBox.Show($"{rowsAffected} rows deleted.");
                 this.tASKTableAdapter.Fill(this.task_Worker_MatchingDataSet.TASK);
+                Tasks_table.DataSource = task_Worker_MatchingDataSet.TASK;
                 sql_connection.Close();
 
             }
@@ -188,6 +191,82 @@ namespace Tawfiq
         {
             // TODO: This line of code loads data into the 'task_Worker_MatchingDataSet.TASK' table. You can move, or remove it, as needed.
             this.tASKTableAdapter.Fill(this.task_Worker_MatchingDataSet.TASK);
+            Tasks_table.DataSource = task_Worker_MatchingDataSet.TASK;
+        }
+
+        private void Search_task_btn_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection sql_connection = new SqlConnection("Data Source = THEDESTRO22; Initial Catalog = Task_Worker_Matching; Integrated Security = True;"))
+            {
+                sql_connection.Open();
+
+                List<string> conditions = new List<string>();
+                SqlCommand sql_command = new SqlCommand();
+
+                if (!string.IsNullOrEmpty(task_id_txt.Text))
+                {
+                    conditions.Add("TASK_ID = @TaskID");
+                    sql_command.Parameters.AddWithValue("@TaskID", task_id_txt.Text);
+                }
+                if (!string.IsNullOrEmpty(task_name_txt.Text))
+                {
+                    conditions.Add("TASK_NAME = @TaskName");
+                    sql_command.Parameters.AddWithValue("@TaskName", task_name_txt.Text);
+                }
+                if (!string.IsNullOrEmpty(required_speciality_txt.Text))
+                {
+                    conditions.Add("REQUIRED_SPECIALITY = @RequiredSpeciality");
+                    sql_command.Parameters.AddWithValue("@RequiredSpeciality", required_speciality_txt.Text);
+                }
+                if (!string.IsNullOrEmpty(average_time_txt.Text))
+                {
+                    conditions.Add("AVERAGE_TIME = @AverageTime");
+                    sql_command.Parameters.AddWithValue("@AverageTime", average_time_txt.Text);
+                }
+                if (!string.IsNullOrEmpty(average_fee_txt.Text))
+                {
+                    conditions.Add("AVERAGE_FEE = @AverageFee");
+                    sql_command.Parameters.AddWithValue("@AverageFee", average_fee_txt.Text);
+                }
+                if (conditions.Count == 0)
+                {
+                    MessageBox.Show("Please fill at least one field to search for a task");
+                    return;
+                }
+                string where_clause = string.Join(" AND ", conditions);
+                sql_command.CommandText = $"SELECT * FROM TASK WHERE {where_clause}";
+                sql_command.Connection = sql_connection;
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(sql_command))
+                {
+                    DataTable results = new DataTable();
+                    adapter.Fill(results);
+
+                    Tasks_table.DataSource = results;
+
+                    MessageBox.Show($"{results.Rows.Count} rows found.");
+                }
+                sql_connection.Close();
+            }
+        }
+
+        private void Overview_btn_Click(object sender, EventArgs e)
+        {
+            Overview_panel.Visible = true;
+            Tasks_panel.Visible = false;
+
+        }
+
+        private void Tasks_btn_Click(object sender, EventArgs e)
+        {
+            Overview_panel.Visible = false;
+            Tasks_panel.Visible = true;
+
+        }
+
+        private void Overview_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
