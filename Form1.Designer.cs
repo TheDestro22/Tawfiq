@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_form));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Side_panel = new System.Windows.Forms.Panel();
             this.Clients_btn = new System.Windows.Forms.Button();
             this.Workers_btn = new System.Windows.Forms.Button();
@@ -83,6 +83,9 @@
             this.Workers_panel = new System.Windows.Forms.Panel();
             this.Clients_panel = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.task_Worker_MatchingDataSet1 = new Tawfiq.Task_Worker_MatchingDataSet1();
+            this.rEQUESTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rEQUESTTableAdapter = new Tawfiq.Task_Worker_MatchingDataSet1TableAdapters.REQUESTTableAdapter();
             this.Side_panel.SuspendLayout();
             this.Logo_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Main_logo_picbox)).BeginInit();
@@ -94,6 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Top_rated_workers_table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Worker_location_chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rEQUESTBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Side_panel
@@ -243,6 +248,7 @@
             this.Tasks_panel.Name = "Tasks_panel";
             this.Tasks_panel.Size = new System.Drawing.Size(1312, 712);
             this.Tasks_panel.TabIndex = 2;
+            this.Tasks_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Tasks_panel_Paint);
             // 
             // Search_task_btn
             // 
@@ -588,16 +594,16 @@
             // 
             // Worker_location_chart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.Worker_location_chart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.Worker_location_chart.Legends.Add(legend4);
+            chartArea11.Name = "ChartArea1";
+            this.Worker_location_chart.ChartAreas.Add(chartArea11);
+            legend11.Name = "Legend1";
+            this.Worker_location_chart.Legends.Add(legend11);
             this.Worker_location_chart.Location = new System.Drawing.Point(87, 195);
             this.Worker_location_chart.Name = "Worker_location_chart";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.Worker_location_chart.Series.Add(series4);
+            series11.ChartArea = "ChartArea1";
+            series11.Legend = "Legend1";
+            series11.Name = "Series1";
+            this.Worker_location_chart.Series.Add(series11);
             this.Worker_location_chart.Size = new System.Drawing.Size(474, 323);
             this.Worker_location_chart.TabIndex = 2;
             this.Worker_location_chart.Text = "chart1";
@@ -635,15 +641,29 @@
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
             this.dataGridView1.TabIndex = 4;
             // 
+            // task_Worker_MatchingDataSet1
+            // 
+            this.task_Worker_MatchingDataSet1.DataSetName = "Task_Worker_MatchingDataSet1";
+            this.task_Worker_MatchingDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rEQUESTBindingSource
+            // 
+            this.rEQUESTBindingSource.DataMember = "REQUEST";
+            this.rEQUESTBindingSource.DataSource = this.task_Worker_MatchingDataSet1;
+            // 
+            // rEQUESTTableAdapter
+            // 
+            this.rEQUESTTableAdapter.ClearBeforeFill = true;
+            // 
             // Main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1612, 712);
-            this.Controls.Add(this.Overview_panel);
-            this.Controls.Add(this.Tasks_panel);
             this.Controls.Add(this.Requests_panel);
+            this.Controls.Add(this.Tasks_panel);
+            this.Controls.Add(this.Overview_panel);
             this.Controls.Add(this.Clients_panel);
             this.Controls.Add(this.Workers_panel);
             this.Controls.Add(this.Side_panel);
@@ -665,6 +685,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Top_rated_workers_table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Worker_location_chart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rEQUESTBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -721,6 +743,9 @@
         private System.Windows.Forms.Panel Workers_panel;
         private System.Windows.Forms.Panel Clients_panel;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private Task_Worker_MatchingDataSet1 task_Worker_MatchingDataSet1;
+        private System.Windows.Forms.BindingSource rEQUESTBindingSource;
+        private Task_Worker_MatchingDataSet1TableAdapters.REQUESTTableAdapter rEQUESTTableAdapter;
     }
 }
 

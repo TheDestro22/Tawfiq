@@ -20,6 +20,8 @@ namespace Tawfiq
 
         private void Main_form_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'task_Worker_MatchingDataSet1.REQUEST' table. You can move, or remove it, as needed.
+            this.rEQUESTTableAdapter.Fill(this.task_Worker_MatchingDataSet1.REQUEST);
             // TODO: This line of code loads data into the 'task_Worker_MatchingDataSet.TASK' table. You can move, or remove it, as needed.
             this.tASKTableAdapter.Fill(this.task_Worker_MatchingDataSet.TASK);
             
@@ -305,6 +307,11 @@ namespace Tawfiq
             Requests_panel.Visible = false;
             Tasks_panel.Visible = false;
             Overview_panel.Visible = false;
+        }
+
+        private void Tasks_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
