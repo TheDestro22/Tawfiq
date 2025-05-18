@@ -615,7 +615,6 @@
             this.Requests_panel.Name = "Requests_panel";
             this.Requests_panel.Size = new System.Drawing.Size(1312, 712);
             this.Requests_panel.TabIndex = 42;
-            this.Requests_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Requests_panel_Paint);
             // 
             // Workers_panel
             // 
@@ -624,7 +623,6 @@
             this.Workers_panel.Name = "Workers_panel";
             this.Workers_panel.Size = new System.Drawing.Size(1312, 712);
             this.Workers_panel.TabIndex = 43;
-            this.Workers_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Workers_panel_Paint);
             // 
             // Clients_panel
             // 
@@ -667,6 +665,7 @@
             this.Controls.Add(this.Tasks_panel);
             this.Controls.Add(this.Overview_panel);
             this.Controls.Add(this.Clients_panel);
+            this.Controls.Add(this.Workers_panel);
             this.Controls.Add(this.Side_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);

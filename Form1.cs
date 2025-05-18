@@ -108,14 +108,14 @@ namespace Tawfiq
                     set_conditions.Add("AVERAGE_TIME = @NewAverageTime");
                     sql_command.Parameters.AddWithValue("@NewAverageTime", new_average_time_txt.Text);
                 }
-                if (!string.IsNullOrEmpty(new_average_fee_txt.Text))
+                if (!string.IsNullOrEmpty(new_average_time_txt.Text))
                 {
                     set_conditions.Add("AVERAGE_FEE = @NewAverageFee");
-                    sql_command.Parameters.AddWithValue("@NewAverageFee", new_average_fee_txt.Text);
+                    sql_command.Parameters.AddWithValue("@NewAverageFee", new_average_time_txt.Text);
                 }
                 if (set_conditions.Count == 0)
                 {
-                    MessageBox.Show("Nothing to change");
+                    MessageBox.Show("Updating all instances in the table");
                     return;
                 }
                 if (where_conditions.Count == 0)
