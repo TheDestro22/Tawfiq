@@ -60,10 +60,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Task_Worker_MatchingDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Task_Worker_MatchingDataSet1.cs">
+      <DependentUpon>Task_Worker_MatchingDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Task_Worker_MatchingDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Task_Worker_MatchingDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Task_Worker_MatchingDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Task_Worker_MatchingDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Task_Worker_MatchingDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Task_Worker_MatchingDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Task_Worker_MatchingDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Task_Worker_MatchingDataSet4.xsd</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -107,6 +125,39 @@
     </None>
     <None Include="Task_Worker_MatchingDataSet1.xss">
       <DependentUpon>Task_Worker_MatchingDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Task_Worker_MatchingDataSet2.xsc">
+      <DependentUpon>Task_Worker_MatchingDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Task_Worker_MatchingDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Task_Worker_MatchingDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Task_Worker_MatchingDataSet2.xss">
+      <DependentUpon>Task_Worker_MatchingDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Task_Worker_MatchingDataSet3.xsc">
+      <DependentUpon>Task_Worker_MatchingDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Task_Worker_MatchingDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Task_Worker_MatchingDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Task_Worker_MatchingDataSet3.xss">
+      <DependentUpon>Task_Worker_MatchingDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Task_Worker_MatchingDataSet4.xsc">
+      <DependentUpon>Task_Worker_MatchingDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="Task_Worker_MatchingDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Task_Worker_MatchingDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Task_Worker_MatchingDataSet4.xss">
+      <DependentUpon>Task_Worker_MatchingDataSet4.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
