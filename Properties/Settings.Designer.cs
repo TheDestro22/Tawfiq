@@ -33,16 +33,5 @@ namespace Tawfiq.Properties {
                 return ((string)(this["Task_Worker_MatchingConnectionString"]));
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-4TMJQMK;Initial Catalog=Task_Worker_Matching;Integrated Secur" +
-            "ity=True;TrustServerCertificate=True")]
-        public string Task_Worker_MatchingConnectionString1 {
-            get {
-                return ((string)(this["Task_Worker_MatchingConnectionString1"]));
-            }
-        }
     }
 }

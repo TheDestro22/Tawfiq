@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Tawfiq
 {
@@ -22,7 +21,6 @@ namespace Tawfiq
         private void Main_form_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'task_Worker_MatchingDataSet1.REQUEST' table. You can move, or remove it, as needed.
-          
             this.rEQUESTTableAdapter.Fill(this.task_Worker_MatchingDataSet1.REQUEST);
             // TODO: This line of code loads data into the 'task_Worker_MatchingDataSet.TASK' table. You can move, or remove it, as needed.
             this.tASKTableAdapter.Fill(this.task_Worker_MatchingDataSet.TASK);
@@ -313,105 +311,6 @@ namespace Tawfiq
 
         private void Tasks_panel_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Total_tasks_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string connectionString = "Data Source=DESKTOP-4TMJQMK;Initial Catalog=Task_Worker_Matching;Integrated Security=True;";
-
-            // 1. Top Rated Workers
-            string topRatedQuery = @"
-                SELECT 
-                    w.Worker_ID,
-                    w.Name,
-                    AVG(f.Rating) AS AverageRating,
-                    COUNT(f.Rating) AS TotalRatings
-                FROM 
-                    Feedback f
-                JOIN 
-                    Worker w ON f.Worker_ID = w.Worker_ID
-                WHERE 
-                    f.From_Client = 1 AND f.Rating IS NOT NULL
-                GROUP BY 
-                    w.Worker_ID, w.Name
-                ORDER BY 
-                    AverageRating DESC;";
-
-            // 2. Specialty Chart
-            string specialtyQuery = @"
-        SELECT ws.SPECIALTY, COUNT(e.WORKER_ID) AS WorkerCount
-        FROM WORKER_SPECIALTY ws
-        LEFT JOIN EXPERIENCE e ON ws.SPECIALTY_ID = e.SPECIALTY_ID
-        GROUP BY ws.SPECIALTY
-        ORDER BY WorkerCount DESC;";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                // Top Rated Workers
-                using (SqlCommand command = new SqlCommand(topRatedQuery, connection))
-                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                {
-                    Top_rated_workers_table.AutoGenerateColumns = true;
-                    DataTable results = new DataTable();
-                    adapter.Fill(results);
-                    Top_rated_workers_table.DataSource = results;
-                }
-
-                // Summary Stats
-                int totalTasks = 0, totalRequests = 0, completedTasks = 0;
-                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM TASK", connection))
-                    totalTasks = (int)cmd.ExecuteScalar();
-                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM REQUEST", connection))
-                    totalRequests = (int)cmd.ExecuteScalar();
-                using (SqlCommand cmd = new SqlCommand(@"
-            SELECT COUNT(*) 
-            FROM Task T
-            JOIN Request R ON T.Task_ID = R.Task_ID
-            WHERE R.Request_Status = 'Completed'", connection))
-                    completedTasks = (int)cmd.ExecuteScalar();
-
-                Total_tasks.Text = $"Total Tasks: {totalTasks}";
-                Total_requests.Text = $"Total Requests: {totalRequests}";
-                Completed_tasks.Text = $"Completed Tasks: {completedTasks}";
-
-                // Specialty Chart
-                using (SqlCommand command = new SqlCommand(specialtyQuery, connection))
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    SpecialtyChart.Series.Clear();
-                    Series series = new Series("Top Specialties");
-                    series.ChartType = SeriesChartType.Pie; // or Column, Bar, etc.
-
-                    while (reader.Read())
-                    {
-                        string specialty = reader.GetString(0);
-                        int count = reader.GetInt32(1);
-                        series.Points.AddXY(specialty, count);
-                    }
-
-                    SpecialtyChart.Series.Add(series);
-                    SpecialtyChart.ChartAreas[0].AxisX.Title = "Specialty";
-                    SpecialtyChart.ChartAreas[0].AxisY.Title = "Number of Workers";
-                }
-            }
 
         }
     }

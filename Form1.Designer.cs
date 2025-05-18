@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_form));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Side_panel = new System.Windows.Forms.Panel();
             this.Clients_btn = new System.Windows.Forms.Button();
             this.Workers_btn = new System.Windows.Forms.Button();
@@ -77,23 +77,15 @@
             this.task_id_txt = new System.Windows.Forms.TextBox();
             this.tASKTableAdapter = new Tawfiq.Task_Worker_MatchingDataSetTableAdapters.TASKTableAdapter();
             this.Overview_panel = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Top_rated_workers_table = new System.Windows.Forms.DataGridView();
+            this.Worker_location_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Requests_panel = new System.Windows.Forms.Panel();
             this.Workers_panel = new System.Windows.Forms.Panel();
             this.Clients_panel = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.task_Worker_MatchingDataSet1 = new Tawfiq.Task_Worker_MatchingDataSet1();
             this.rEQUESTBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rEQUESTTableAdapter = new Tawfiq.Task_Worker_MatchingDataSet1TableAdapters.REQUESTTableAdapter();
-            this.Total_tasks = new System.Windows.Forms.Label();
-            this.Total_requests = new System.Windows.Forms.Label();
-            this.Completed_tasks = new System.Windows.Forms.Label();
-            this.Top_rated_workers_table = new System.Windows.Forms.DataGridView();
-            this.taskWorkerMatchingDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rEQUESTBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.SpecialtyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.Side_panel.SuspendLayout();
             this.Logo_Panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Main_logo_picbox)).BeginInit();
@@ -102,13 +94,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.tASKBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet)).BeginInit();
             this.Overview_panel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Top_rated_workers_table)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Worker_location_chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rEQUESTBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Top_rated_workers_table)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taskWorkerMatchingDataSet1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rEQUESTBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SpecialtyChart)).BeginInit();
             this.SuspendLayout();
             // 
             // Side_panel
@@ -122,9 +112,8 @@
             this.Side_panel.Controls.Add(this.Logo_Panel);
             this.Side_panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.Side_panel.Location = new System.Drawing.Point(0, 0);
-            this.Side_panel.Margin = new System.Windows.Forms.Padding(4);
             this.Side_panel.Name = "Side_panel";
-            this.Side_panel.Size = new System.Drawing.Size(400, 876);
+            this.Side_panel.Size = new System.Drawing.Size(300, 712);
             this.Side_panel.TabIndex = 1;
             // 
             // Clients_btn
@@ -134,10 +123,9 @@
             this.Clients_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Clients_btn.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clients_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Clients_btn.Location = new System.Drawing.Point(0, 641);
-            this.Clients_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.Clients_btn.Location = new System.Drawing.Point(0, 520);
             this.Clients_btn.Name = "Clients_btn";
-            this.Clients_btn.Size = new System.Drawing.Size(400, 68);
+            this.Clients_btn.Size = new System.Drawing.Size(300, 55);
             this.Clients_btn.TabIndex = 5;
             this.Clients_btn.Text = "Clients";
             this.Clients_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -151,10 +139,9 @@
             this.Workers_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Workers_btn.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Workers_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Workers_btn.Location = new System.Drawing.Point(0, 573);
-            this.Workers_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.Workers_btn.Location = new System.Drawing.Point(0, 465);
             this.Workers_btn.Name = "Workers_btn";
-            this.Workers_btn.Size = new System.Drawing.Size(400, 68);
+            this.Workers_btn.Size = new System.Drawing.Size(300, 55);
             this.Workers_btn.TabIndex = 4;
             this.Workers_btn.Text = "Workers";
             this.Workers_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -168,10 +155,9 @@
             this.Requests_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Requests_btn.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Requests_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Requests_btn.Location = new System.Drawing.Point(0, 505);
-            this.Requests_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.Requests_btn.Location = new System.Drawing.Point(0, 410);
             this.Requests_btn.Name = "Requests_btn";
-            this.Requests_btn.Size = new System.Drawing.Size(400, 68);
+            this.Requests_btn.Size = new System.Drawing.Size(300, 55);
             this.Requests_btn.TabIndex = 3;
             this.Requests_btn.Text = "Requests";
             this.Requests_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -185,10 +171,9 @@
             this.Tasks_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Tasks_btn.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tasks_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Tasks_btn.Location = new System.Drawing.Point(0, 437);
-            this.Tasks_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.Tasks_btn.Location = new System.Drawing.Point(0, 355);
             this.Tasks_btn.Name = "Tasks_btn";
-            this.Tasks_btn.Size = new System.Drawing.Size(400, 68);
+            this.Tasks_btn.Size = new System.Drawing.Size(300, 55);
             this.Tasks_btn.TabIndex = 2;
             this.Tasks_btn.Text = "Tasks";
             this.Tasks_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -202,10 +187,9 @@
             this.Overview_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Overview_btn.Font = new System.Drawing.Font("Mongolian Baiti", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Overview_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Overview_btn.Location = new System.Drawing.Point(0, 369);
-            this.Overview_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.Overview_btn.Location = new System.Drawing.Point(0, 300);
             this.Overview_btn.Name = "Overview_btn";
-            this.Overview_btn.Size = new System.Drawing.Size(400, 68);
+            this.Overview_btn.Size = new System.Drawing.Size(300, 55);
             this.Overview_btn.TabIndex = 1;
             this.Overview_btn.Text = "Overview";
             this.Overview_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -217,18 +201,16 @@
             this.Logo_Panel.Controls.Add(this.Main_logo_picbox);
             this.Logo_Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Logo_Panel.Location = new System.Drawing.Point(0, 0);
-            this.Logo_Panel.Margin = new System.Windows.Forms.Padding(4);
             this.Logo_Panel.Name = "Logo_Panel";
-            this.Logo_Panel.Size = new System.Drawing.Size(400, 369);
+            this.Logo_Panel.Size = new System.Drawing.Size(300, 300);
             this.Logo_Panel.TabIndex = 1;
             // 
             // Main_logo_picbox
             // 
             this.Main_logo_picbox.Image = ((System.Drawing.Image)(resources.GetObject("Main_logo_picbox.Image")));
-            this.Main_logo_picbox.Location = new System.Drawing.Point(0, -8);
-            this.Main_logo_picbox.Margin = new System.Windows.Forms.Padding(4);
+            this.Main_logo_picbox.Location = new System.Drawing.Point(0, -3);
             this.Main_logo_picbox.Name = "Main_logo_picbox";
-            this.Main_logo_picbox.Size = new System.Drawing.Size(400, 373);
+            this.Main_logo_picbox.Size = new System.Drawing.Size(300, 303);
             this.Main_logo_picbox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Main_logo_picbox.TabIndex = 0;
             this.Main_logo_picbox.TabStop = false;
@@ -262,10 +244,9 @@
             this.Tasks_panel.Controls.Add(this.task_id_label);
             this.Tasks_panel.Controls.Add(this.task_id_txt);
             this.Tasks_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Tasks_panel.Location = new System.Drawing.Point(400, 0);
-            this.Tasks_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.Tasks_panel.Location = new System.Drawing.Point(300, 0);
             this.Tasks_panel.Name = "Tasks_panel";
-            this.Tasks_panel.Size = new System.Drawing.Size(1542, 876);
+            this.Tasks_panel.Size = new System.Drawing.Size(1312, 712);
             this.Tasks_panel.TabIndex = 2;
             this.Tasks_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Tasks_panel_Paint);
             // 
@@ -273,12 +254,11 @@
             // 
             this.Search_task_btn.FlatAppearance.BorderSize = 0;
             this.Search_task_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Search_task_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search_task_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Search_task_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.Search_task_btn.Location = new System.Drawing.Point(8, 736);
-            this.Search_task_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.Search_task_btn.Location = new System.Drawing.Point(6, 598);
             this.Search_task_btn.Name = "Search_task_btn";
-            this.Search_task_btn.Size = new System.Drawing.Size(412, 126);
+            this.Search_task_btn.Size = new System.Drawing.Size(309, 102);
             this.Search_task_btn.TabIndex = 41;
             this.Search_task_btn.Text = "Search for Task";
             this.Search_task_btn.UseVisualStyleBackColor = true;
@@ -295,11 +275,10 @@
             this.aVERAGETIMEDataGridViewTextBoxColumn,
             this.aVERAGEFEEDataGridViewTextBoxColumn});
             this.Tasks_table.DataSource = this.tASKBindingSource;
-            this.Tasks_table.Location = new System.Drawing.Point(995, 134);
-            this.Tasks_table.Margin = new System.Windows.Forms.Padding(4);
+            this.Tasks_table.Location = new System.Drawing.Point(746, 109);
             this.Tasks_table.Name = "Tasks_table";
             this.Tasks_table.RowHeadersWidth = 62;
-            this.Tasks_table.Size = new System.Drawing.Size(739, 724);
+            this.Tasks_table.Size = new System.Drawing.Size(554, 588);
             this.Tasks_table.TabIndex = 40;
             // 
             // tASKIDDataGridViewTextBoxColumn
@@ -356,12 +335,11 @@
             // 
             this.edit_task_btn.FlatAppearance.BorderSize = 0;
             this.edit_task_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.edit_task_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edit_task_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit_task_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.edit_task_btn.Location = new System.Drawing.Point(521, 470);
-            this.edit_task_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.edit_task_btn.Location = new System.Drawing.Point(391, 382);
             this.edit_task_btn.Name = "edit_task_btn";
-            this.edit_task_btn.Size = new System.Drawing.Size(412, 126);
+            this.edit_task_btn.Size = new System.Drawing.Size(309, 102);
             this.edit_task_btn.TabIndex = 39;
             this.edit_task_btn.Text = "Edit Task";
             this.edit_task_btn.UseVisualStyleBackColor = true;
@@ -371,12 +349,11 @@
             // 
             this.delete_task_btn.FlatAppearance.BorderSize = 0;
             this.delete_task_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete_task_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete_task_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete_task_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.delete_task_btn.Location = new System.Drawing.Point(8, 603);
-            this.delete_task_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.delete_task_btn.Location = new System.Drawing.Point(6, 490);
             this.delete_task_btn.Name = "delete_task_btn";
-            this.delete_task_btn.Size = new System.Drawing.Size(412, 126);
+            this.delete_task_btn.Size = new System.Drawing.Size(309, 102);
             this.delete_task_btn.TabIndex = 38;
             this.delete_task_btn.Text = "Delete Task";
             this.delete_task_btn.UseVisualStyleBackColor = true;
@@ -386,12 +363,11 @@
             // 
             this.load_tasks_btn.FlatAppearance.BorderSize = 0;
             this.load_tasks_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.load_tasks_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.load_tasks_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.load_tasks_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.load_tasks_btn.Location = new System.Drawing.Point(521, 603);
-            this.load_tasks_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.load_tasks_btn.Location = new System.Drawing.Point(391, 490);
             this.load_tasks_btn.Name = "load_tasks_btn";
-            this.load_tasks_btn.Size = new System.Drawing.Size(412, 126);
+            this.load_tasks_btn.Size = new System.Drawing.Size(309, 102);
             this.load_tasks_btn.TabIndex = 37;
             this.load_tasks_btn.Text = "Load Tasks";
             this.load_tasks_btn.UseVisualStyleBackColor = true;
@@ -402,12 +378,11 @@
             this.add_task_btn.BackColor = System.Drawing.Color.Transparent;
             this.add_task_btn.FlatAppearance.BorderSize = 0;
             this.add_task_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_task_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_task_btn.Font = new System.Drawing.Font("Modern No. 20", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_task_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.add_task_btn.Location = new System.Drawing.Point(8, 470);
-            this.add_task_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.add_task_btn.Location = new System.Drawing.Point(6, 382);
             this.add_task_btn.Name = "add_task_btn";
-            this.add_task_btn.Size = new System.Drawing.Size(412, 126);
+            this.add_task_btn.Size = new System.Drawing.Size(309, 102);
             this.add_task_btn.TabIndex = 36;
             this.add_task_btn.Text = "Add Task";
             this.add_task_btn.UseVisualStyleBackColor = false;
@@ -416,201 +391,181 @@
             // new_average_fee
             // 
             this.new_average_fee.AutoSize = true;
-            this.new_average_fee.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_average_fee.Location = new System.Drawing.Point(516, 418);
-            this.new_average_fee.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.new_average_fee.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_average_fee.Location = new System.Drawing.Point(387, 340);
             this.new_average_fee.Name = "new_average_fee";
-            this.new_average_fee.Size = new System.Drawing.Size(207, 29);
+            this.new_average_fee.Size = new System.Drawing.Size(142, 21);
             this.new_average_fee.TabIndex = 35;
             this.new_average_fee.Text = "New Average Fee";
             // 
             // new_average_fee_txt
             // 
-            this.new_average_fee_txt.Location = new System.Drawing.Point(727, 420);
-            this.new_average_fee_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.new_average_fee_txt.Location = new System.Drawing.Point(545, 341);
             this.new_average_fee_txt.Multiline = true;
             this.new_average_fee_txt.Name = "new_average_fee_txt";
-            this.new_average_fee_txt.Size = new System.Drawing.Size(243, 24);
+            this.new_average_fee_txt.Size = new System.Drawing.Size(183, 20);
             this.new_average_fee_txt.TabIndex = 34;
             // 
             // new_task_name_label
             // 
             this.new_task_name_label.AutoSize = true;
-            this.new_task_name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_task_name_label.Location = new System.Drawing.Point(516, 215);
-            this.new_task_name_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.new_task_name_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_task_name_label.Location = new System.Drawing.Point(387, 175);
             this.new_task_name_label.Name = "new_task_name_label";
-            this.new_task_name_label.Size = new System.Drawing.Size(193, 29);
+            this.new_task_name_label.Size = new System.Drawing.Size(135, 21);
             this.new_task_name_label.TabIndex = 33;
             this.new_task_name_label.Text = "New Task Name";
             // 
             // new_task_name_txt
             // 
-            this.new_task_name_txt.Location = new System.Drawing.Point(704, 215);
-            this.new_task_name_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.new_task_name_txt.Location = new System.Drawing.Point(528, 175);
             this.new_task_name_txt.Multiline = true;
             this.new_task_name_txt.Name = "new_task_name_txt";
-            this.new_task_name_txt.Size = new System.Drawing.Size(265, 24);
+            this.new_task_name_txt.Size = new System.Drawing.Size(200, 20);
             this.new_task_name_txt.TabIndex = 32;
             // 
             // new_required_speciality_label
             // 
             this.new_required_speciality_label.AutoSize = true;
-            this.new_required_speciality_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_required_speciality_label.Location = new System.Drawing.Point(516, 283);
-            this.new_required_speciality_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.new_required_speciality_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_required_speciality_label.Location = new System.Drawing.Point(387, 230);
             this.new_required_speciality_label.Name = "new_required_speciality_label";
-            this.new_required_speciality_label.Size = new System.Drawing.Size(279, 29);
+            this.new_required_speciality_label.Size = new System.Drawing.Size(200, 21);
             this.new_required_speciality_label.TabIndex = 31;
             this.new_required_speciality_label.Text = "New Required Speciality";
             // 
             // new_required_speciality_txt
             // 
-            this.new_required_speciality_txt.Location = new System.Drawing.Point(804, 284);
-            this.new_required_speciality_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.new_required_speciality_txt.Location = new System.Drawing.Point(603, 231);
             this.new_required_speciality_txt.Multiline = true;
             this.new_required_speciality_txt.Name = "new_required_speciality_txt";
-            this.new_required_speciality_txt.Size = new System.Drawing.Size(165, 24);
+            this.new_required_speciality_txt.Size = new System.Drawing.Size(125, 20);
             this.new_required_speciality_txt.TabIndex = 30;
             // 
             // new_average_time
             // 
             this.new_average_time.AutoSize = true;
-            this.new_average_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_average_time.Location = new System.Drawing.Point(516, 350);
-            this.new_average_time.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.new_average_time.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_average_time.Location = new System.Drawing.Point(387, 284);
             this.new_average_time.Name = "new_average_time";
-            this.new_average_time.Size = new System.Drawing.Size(220, 29);
+            this.new_average_time.Size = new System.Drawing.Size(154, 21);
             this.new_average_time.TabIndex = 29;
             this.new_average_time.Text = "New Average Time";
             // 
             // new_average_time_txt
             // 
-            this.new_average_time_txt.Location = new System.Drawing.Point(741, 353);
-            this.new_average_time_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.new_average_time_txt.Location = new System.Drawing.Point(556, 287);
             this.new_average_time_txt.Multiline = true;
             this.new_average_time_txt.Name = "new_average_time_txt";
-            this.new_average_time_txt.Size = new System.Drawing.Size(228, 24);
+            this.new_average_time_txt.Size = new System.Drawing.Size(172, 20);
             this.new_average_time_txt.TabIndex = 28;
             // 
             // new_task_id_label
             // 
             this.new_task_id_label.AutoSize = true;
-            this.new_task_id_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.new_task_id_label.Location = new System.Drawing.Point(516, 134);
-            this.new_task_id_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.new_task_id_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.new_task_id_label.Location = new System.Drawing.Point(387, 109);
             this.new_task_id_label.Name = "new_task_id_label";
-            this.new_task_id_label.Size = new System.Drawing.Size(151, 29);
+            this.new_task_id_label.Size = new System.Drawing.Size(113, 21);
             this.new_task_id_label.TabIndex = 27;
             this.new_task_id_label.Text = "New Task ID";
             // 
             // new_task_id_txt
             // 
-            this.new_task_id_txt.Location = new System.Drawing.Point(704, 138);
-            this.new_task_id_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.new_task_id_txt.Location = new System.Drawing.Point(528, 112);
             this.new_task_id_txt.Multiline = true;
             this.new_task_id_txt.Name = "new_task_id_txt";
-            this.new_task_id_txt.Size = new System.Drawing.Size(265, 24);
+            this.new_task_id_txt.Size = new System.Drawing.Size(200, 20);
             this.new_task_id_txt.TabIndex = 26;
             // 
             // average_fee_btn
             // 
             this.average_fee_btn.AutoSize = true;
-            this.average_fee_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.average_fee_btn.Location = new System.Drawing.Point(3, 418);
-            this.average_fee_btn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.average_fee_btn.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.average_fee_btn.Location = new System.Drawing.Point(2, 340);
             this.average_fee_btn.Name = "average_fee_btn";
-            this.average_fee_btn.Size = new System.Drawing.Size(151, 29);
+            this.average_fee_btn.Size = new System.Drawing.Size(104, 21);
             this.average_fee_btn.TabIndex = 25;
             this.average_fee_btn.Text = "Average Fee";
             // 
             // average_fee_txt
             // 
-            this.average_fee_txt.Location = new System.Drawing.Point(165, 422);
-            this.average_fee_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.average_fee_txt.Location = new System.Drawing.Point(124, 343);
             this.average_fee_txt.Multiline = true;
             this.average_fee_txt.Name = "average_fee_txt";
-            this.average_fee_txt.Size = new System.Drawing.Size(253, 24);
+            this.average_fee_txt.Size = new System.Drawing.Size(191, 20);
             this.average_fee_txt.TabIndex = 24;
             // 
             // task_name_label
             // 
             this.task_name_label.AutoSize = true;
-            this.task_name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.task_name_label.Location = new System.Drawing.Point(3, 215);
-            this.task_name_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.task_name_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.task_name_label.Location = new System.Drawing.Point(2, 175);
             this.task_name_label.Name = "task_name_label";
-            this.task_name_label.Size = new System.Drawing.Size(137, 29);
+            this.task_name_label.Size = new System.Drawing.Size(97, 21);
             this.task_name_label.TabIndex = 23;
             this.task_name_label.Text = "Task Name";
             // 
             // task_name_txt
             // 
-            this.task_name_txt.Location = new System.Drawing.Point(153, 215);
-            this.task_name_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.task_name_txt.Location = new System.Drawing.Point(115, 175);
             this.task_name_txt.Multiline = true;
             this.task_name_txt.Name = "task_name_txt";
-            this.task_name_txt.Size = new System.Drawing.Size(265, 24);
+            this.task_name_txt.Size = new System.Drawing.Size(200, 20);
             this.task_name_txt.TabIndex = 22;
             // 
             // required_speciality_label
             // 
             this.required_speciality_label.AutoSize = true;
-            this.required_speciality_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.required_speciality_label.Location = new System.Drawing.Point(3, 283);
-            this.required_speciality_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.required_speciality_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.required_speciality_label.Location = new System.Drawing.Point(2, 230);
             this.required_speciality_label.Name = "required_speciality_label";
-            this.required_speciality_label.Size = new System.Drawing.Size(223, 29);
+            this.required_speciality_label.Size = new System.Drawing.Size(162, 21);
             this.required_speciality_label.TabIndex = 21;
             this.required_speciality_label.Text = "Required Speciality";
             // 
             // required_speciality_txt
             // 
-            this.required_speciality_txt.Location = new System.Drawing.Point(227, 283);
-            this.required_speciality_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.required_speciality_txt.Location = new System.Drawing.Point(170, 230);
             this.required_speciality_txt.Multiline = true;
             this.required_speciality_txt.Name = "required_speciality_txt";
-            this.required_speciality_txt.Size = new System.Drawing.Size(192, 24);
+            this.required_speciality_txt.Size = new System.Drawing.Size(145, 20);
             this.required_speciality_txt.TabIndex = 20;
             // 
             // average_time_label
             // 
             this.average_time_label.AutoSize = true;
-            this.average_time_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.average_time_label.Location = new System.Drawing.Point(3, 350);
-            this.average_time_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.average_time_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.average_time_label.Location = new System.Drawing.Point(2, 284);
             this.average_time_label.Name = "average_time_label";
-            this.average_time_label.Size = new System.Drawing.Size(164, 29);
+            this.average_time_label.Size = new System.Drawing.Size(116, 21);
             this.average_time_label.TabIndex = 19;
             this.average_time_label.Text = "Average Time";
             // 
             // average_time_txt
             // 
-            this.average_time_txt.Location = new System.Drawing.Point(165, 351);
-            this.average_time_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.average_time_txt.Location = new System.Drawing.Point(124, 285);
             this.average_time_txt.Multiline = true;
             this.average_time_txt.Name = "average_time_txt";
-            this.average_time_txt.Size = new System.Drawing.Size(253, 24);
+            this.average_time_txt.Size = new System.Drawing.Size(191, 20);
             this.average_time_txt.TabIndex = 18;
             // 
             // task_id_label
             // 
             this.task_id_label.AutoSize = true;
-            this.task_id_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.task_id_label.Location = new System.Drawing.Point(3, 134);
-            this.task_id_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.task_id_label.Font = new System.Drawing.Font("Modern No. 20", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.task_id_label.Location = new System.Drawing.Point(2, 109);
             this.task_id_label.Name = "task_id_label";
-            this.task_id_label.Size = new System.Drawing.Size(95, 29);
+            this.task_id_label.Size = new System.Drawing.Size(75, 21);
             this.task_id_label.TabIndex = 17;
             this.task_id_label.Text = "Task ID";
             // 
             // task_id_txt
             // 
-            this.task_id_txt.Location = new System.Drawing.Point(153, 134);
-            this.task_id_txt.Margin = new System.Windows.Forms.Padding(4);
+            this.task_id_txt.Location = new System.Drawing.Point(115, 109);
             this.task_id_txt.Multiline = true;
             this.task_id_txt.Name = "task_id_txt";
-            this.task_id_txt.Size = new System.Drawing.Size(265, 24);
+            this.task_id_txt.Size = new System.Drawing.Size(200, 20);
             this.task_id_txt.TabIndex = 16;
             // 
             // tASKTableAdapter
@@ -619,32 +574,25 @@
             // 
             // Overview_panel
             // 
-            this.Overview_panel.Controls.Add(this.label1);
-            this.Overview_panel.Controls.Add(this.button2);
-            this.Overview_panel.Controls.Add(this.panel1);
+            this.Overview_panel.Controls.Add(this.dataGridView1);
+            this.Overview_panel.Controls.Add(this.Top_rated_workers_table);
+            this.Overview_panel.Controls.Add(this.Worker_location_chart);
             this.Overview_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Overview_panel.Location = new System.Drawing.Point(400, 0);
-            this.Overview_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.Overview_panel.Location = new System.Drawing.Point(300, 0);
             this.Overview_panel.Name = "Overview_panel";
-            this.Overview_panel.Size = new System.Drawing.Size(1542, 876);
+            this.Overview_panel.Size = new System.Drawing.Size(1312, 712);
             this.Overview_panel.TabIndex = 42;
             this.Overview_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Overview_panel_Paint);
             // 
-            // button2
+            // Top_rated_workers_table
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.Cursor = System.Windows.Forms.Cursors.No;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(900, 390);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(198, 147);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Generate Report";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Top_rated_workers_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Top_rated_workers_table.Location = new System.Drawing.Point(671, 195);
+            this.Top_rated_workers_table.Name = "Top_rated_workers_table";
+            this.Top_rated_workers_table.Size = new System.Drawing.Size(555, 323);
+            this.Top_rated_workers_table.TabIndex = 3;
             // 
-            // panel1
+            // Worker_location_chart
             // 
             chartArea11.Name = "ChartArea1";
             this.Worker_location_chart.ChartAreas.Add(chartArea11);
@@ -663,32 +611,37 @@
             // Requests_panel
             // 
             this.Requests_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Requests_panel.Location = new System.Drawing.Point(400, 0);
-            this.Requests_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.Requests_panel.Location = new System.Drawing.Point(300, 0);
             this.Requests_panel.Name = "Requests_panel";
-            this.Requests_panel.Size = new System.Drawing.Size(1542, 876);
+            this.Requests_panel.Size = new System.Drawing.Size(1312, 712);
             this.Requests_panel.TabIndex = 42;
             this.Requests_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Requests_panel_Paint);
             // 
             // Workers_panel
             // 
             this.Workers_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Workers_panel.Location = new System.Drawing.Point(400, 0);
-            this.Workers_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.Workers_panel.Location = new System.Drawing.Point(300, 0);
             this.Workers_panel.Name = "Workers_panel";
-            this.Workers_panel.Size = new System.Drawing.Size(1542, 876);
+            this.Workers_panel.Size = new System.Drawing.Size(1312, 712);
             this.Workers_panel.TabIndex = 43;
             this.Workers_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Workers_panel_Paint);
             // 
             // Clients_panel
             // 
             this.Clients_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Clients_panel.Location = new System.Drawing.Point(400, 0);
-            this.Clients_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.Clients_panel.Location = new System.Drawing.Point(300, 0);
             this.Clients_panel.Name = "Clients_panel";
-            this.Clients_panel.Size = new System.Drawing.Size(1542, 876);
+            this.Clients_panel.Size = new System.Drawing.Size(1312, 712);
             this.Clients_panel.TabIndex = 44;
             this.Clients_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Clients_panel_Paint);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(545, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 4;
             // 
             // task_Worker_MatchingDataSet1
             // 
@@ -704,106 +657,9 @@
             // 
             this.rEQUESTTableAdapter.ClearBeforeFill = true;
             // 
-            // Total_tasks
-            // 
-            this.Total_tasks.AutoSize = true;
-            this.Total_tasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Total_tasks.Location = new System.Drawing.Point(27, 72);
-            this.Total_tasks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Total_tasks.Name = "Total_tasks";
-            this.Total_tasks.Size = new System.Drawing.Size(139, 29);
-            this.Total_tasks.TabIndex = 26;
-            this.Total_tasks.Text = "Total Tasks";
-            this.Total_tasks.Click += new System.EventHandler(this.Total_tasks_Click);
-            // 
-            // Total_requests
-            // 
-            this.Total_requests.AutoSize = true;
-            this.Total_requests.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Total_requests.Location = new System.Drawing.Point(265, 72);
-            this.Total_requests.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Total_requests.Name = "Total_requests";
-            this.Total_requests.Size = new System.Drawing.Size(176, 29);
-            this.Total_requests.TabIndex = 27;
-            this.Total_requests.Text = "Total Requests";
-            this.Total_requests.Click += new System.EventHandler(this.label1_Click_1);
-            // 
-            // Completed_tasks
-            // 
-            this.Completed_tasks.AutoSize = true;
-            this.Completed_tasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Completed_tasks.Location = new System.Drawing.Point(499, 72);
-            this.Completed_tasks.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Completed_tasks.Name = "Completed_tasks";
-            this.Completed_tasks.Size = new System.Drawing.Size(203, 29);
-            this.Completed_tasks.TabIndex = 27;
-            this.Completed_tasks.Text = "Completed Tasks";
-            // 
-            // Top_rated_workers_table
-            // 
-            this.Top_rated_workers_table.AllowUserToOrderColumns = true;
-            this.Top_rated_workers_table.AutoGenerateColumns = false;
-            this.Top_rated_workers_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Top_rated_workers_table.DataSource = this.task_Worker_MatchingDataSet;
-            this.Top_rated_workers_table.GridColor = System.Drawing.SystemColors.ButtonFace;
-            this.Top_rated_workers_table.Location = new System.Drawing.Point(21, 158);
-            this.Top_rated_workers_table.Name = "Top_rated_workers_table";
-            this.Top_rated_workers_table.RowHeadersWidth = 51;
-            this.Top_rated_workers_table.RowTemplate.Height = 24;
-            this.Top_rated_workers_table.Size = new System.Drawing.Size(333, 257);
-            this.Top_rated_workers_table.TabIndex = 28;
-            // 
-            // taskWorkerMatchingDataSet1BindingSource
-            // 
-            this.taskWorkerMatchingDataSet1BindingSource.DataSource = this.task_Worker_MatchingDataSet1;
-            this.taskWorkerMatchingDataSet1BindingSource.Position = 0;
-            // 
-            // rEQUESTBindingSource1
-            // 
-            this.rEQUESTBindingSource1.DataMember = "REQUEST";
-            this.rEQUESTBindingSource1.DataSource = this.taskWorkerMatchingDataSet1BindingSource;
-            // 
-            // SpecialtyChart
-            // 
-            chartArea6.Name = "ChartArea1";
-            this.SpecialtyChart.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.SpecialtyChart.Legends.Add(legend6);
-            this.SpecialtyChart.Location = new System.Drawing.Point(360, 156);
-            this.SpecialtyChart.Name = "SpecialtyChart";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.SpecialtyChart.Series.Add(series6);
-            this.SpecialtyChart.Size = new System.Drawing.Size(369, 300);
-            this.SpecialtyChart.TabIndex = 29;
-            this.SpecialtyChart.Text = "chart1";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(91, 427);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 30);
-            this.textBox1.TabIndex = 30;
-            this.textBox1.Text = "Top Rated Workers";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mongolian Baiti", 25.8F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(592, 43);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 46);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Overview";
-            // 
             // Main_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1612, 712);
@@ -813,7 +669,7 @@
             this.Controls.Add(this.Clients_panel);
             this.Controls.Add(this.Side_panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main Form";
@@ -827,15 +683,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.tASKBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet)).EndInit();
             this.Overview_panel.ResumeLayout(false);
-            this.Overview_panel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Top_rated_workers_table)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Worker_location_chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.task_Worker_MatchingDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rEQUESTBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Top_rated_workers_table)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taskWorkerMatchingDataSet1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rEQUESTBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SpecialtyChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -886,23 +738,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn aVERAGEFEEDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button Search_task_btn;
         private System.Windows.Forms.Panel Overview_panel;
+        private System.Windows.Forms.DataGridView Top_rated_workers_table;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Worker_location_chart;
         private System.Windows.Forms.Panel Requests_panel;
         private System.Windows.Forms.Panel Workers_panel;
         private System.Windows.Forms.Panel Clients_panel;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private Task_Worker_MatchingDataSet1 task_Worker_MatchingDataSet1;
         private System.Windows.Forms.BindingSource rEQUESTBindingSource;
         private Task_Worker_MatchingDataSet1TableAdapters.REQUESTTableAdapter rEQUESTTableAdapter;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label Total_tasks;
-        private System.Windows.Forms.Label Total_requests;
-        private System.Windows.Forms.Label Completed_tasks;
-        private System.Windows.Forms.DataGridView Top_rated_workers_table;
-        private System.Windows.Forms.BindingSource taskWorkerMatchingDataSet1BindingSource;
-        private System.Windows.Forms.BindingSource rEQUESTBindingSource1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart SpecialtyChart;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
     }
 }
 
